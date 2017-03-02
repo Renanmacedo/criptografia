@@ -17,6 +17,7 @@
 	<title>Cifra de Cesa</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script type="text/javascript" src="c.js"></script>
+	<script type="text/javascript" src="animate.js"></script>
 </head>
 <body>
 	<div class="content">
@@ -25,16 +26,16 @@
 				<div class="row">
 					<div class="col-md-8">
 						<label class="control-label" for="texo">Texto Claro:</label>
-						<input type="text" class="form-control" id="textoC">
+						<input type="text" class="form-control" id="textoC" required="true">
 					</div>
 					<div class="col-md-2">
 						<label class="control-label">Key:</label>
-						<input type="text" name="" id="key" class="form-control">
+						<input type="text" name="" id="key" class="form-control" required="true">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4">
-						<button class="btn btn-primary" type="button" onclick="funcao.c(f.textoC);">Cifrar</button>
+						<button class="btn btn-primary" type="button" onclick="funcao.c(f.textoC);" id="cifrar">Cifrar</button>
 					</div>
 					<div class="col-md-4">
 						<button class="btn btn-primary" type="button" onclick="funcao.d();">Decifrar</button>
