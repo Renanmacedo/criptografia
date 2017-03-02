@@ -1,0 +1,10 @@
+*{padding: 8px;}
+.jumbotron{
+	width: 50%;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#tcl{visibility: hidden;}
+#tcf{visibility: hidden;}
+#tcd{visibility: hidden;}
