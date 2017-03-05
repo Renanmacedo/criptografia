@@ -17,58 +17,93 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<meta content="utf-8">
 	<title>Cifra de Cesa</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script type="text/javascript" src="c.js"></script>
-	
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="cripto/c.js"></script>
+	<script type="text/javascript" src="animate/animate.js"></script>
 </head>
 <body>
-	<div class="content">
-		<div class="jumbotron">
-			<form class="form-horizontal" id="f">
-				<div class="row">
-					<div class="col-md-8">
-						<label class="control-label" for="texo">Texto Claro:</label>
-						<input type="text" class="form-control" id="textoC" required="true">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-3 col-sm-3">
+				<div class="well">
+					<p>O presente programa, mostra como o algoritmo simetrico de cesar trabalha.
+						A criptografia é feita da seguinte forma: O texto claro 
+						<blockquote><code><strong>X</strong>=[x<sub>1</sub>,x<sub>2</sub>,...,x<sub>m</sub>]</code></blockquote>,
+						<strong>m</strong> elementos de <strong>X</strong> são letras do alfabeto finito.
+						Para uma chave <code><strong>K</strong>=[k<sub>1</sub>,k<sub>2</sub>,...,k<sub>j</sub>]</code>.
+						Onde <strong>j</strong> é o limite do alfabeto.
+						Com o texto <strong>X</strong> e chave de criptografia <strong>K</strong> como entrada,
+						o texto cifrado <code><strong>Y</strong>=[y<sub>1</sub>,y<sub>2</sub>,...,y<sub>n</sub>]</code>.
+						Com isso temos a seguinte formula: <blockquote><code>Y= E(X,K)</code></blockquote>.
+						Em resumo, a função <strong>E</strong> usa o texto claro <strong>X</strong> e a chave <strong>K</strong>,
+						para gerar o texto cifrado <strong>Y</strong>.
+					</p>
+				</div>
+			</div>
+			<div class="col-sm-6">
+					<div class="jumbotron">
+						<form class="form-horizontal" id="f" method="POST" action="">
+						<div class="row">
+							<div class="col-md-8 col-sm-8 col-xs-8">
+								<label class="control-label" for="texo">Texto Claro:</label>
+								<input type="text" class="form-control" id="textoC" required="true">
+							</div>
+							<div class="col-md-2 col-sm-2 col-xs-2">
+								<label class="control-label">Key:</label>
+								<input type="text" name="" id="key" class="form-control" required="true">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4 col-sm-4 col-xs-4">
+								<button class="btn btn-primary" id="cif" type="button" onclick="funcao.c(f.textoC);">Cifrar</button>
+							</div>
+							<div class="col-md-4 col-sm-4 col-xs-4">
+								<button class="btn btn-primary" type="button" onclick="funcao.d();">Decifrar</button>
+							</div>
+							<div class="col-md-4 col-sm-4 col-xs-4">
+								<button class="btn btn-warning" type="button" onclick="funcao.limpar(); ">Limpar</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="jumbotron">
+					<div class="row">
+						<div class=col-md-12>
+							<p class="alert alert-info" id="tcl">
+								<strong>Texto claro:</strong><span id="cl"></span>
+							</p>
+						</div>
 					</div>
-					<div class="col-md-2">
-						<label class="control-label">Key:</label>
-						<input type="text" name="" id="key" class="form-control" required="true">
+					<div class="row">
+						<div class="col-md-12">
+							<p class="alert alert-success" id="tcf">
+								<strong>Texto cifrado:</strong><span id="ci"></span>
+							</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<p class="alert alert-info" id="tcd">
+								<strong>Texto Decifrado:</strong><span id="de"></span>
+							</p>
+						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-4">
-						<button class="btn btn-primary" type="button" onclick="funcao.c(f.textoC);" id="cifrar">Cifrar</button>
-					</div>
-					<div class="col-md-4">
-						<button class="btn btn-primary" type="button" onclick="funcao.d();">Decifrar</button>
-					</div>
-					<div class="col-md-4">
-						<button class="btn btn-warning" type="button" onclick="funcao.limpar();">Limpar</button>
-					</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="well">
+					<p>O algoritmo de Cesar, utiliza uma tecnica chamada substituição onde cada letra é substituida por
+						outra, variando com o valor da chave passada.
+						A criptografia de um texto claro segue a seguinte formula:
+						<blockquote><code>C=E=(T,K)= (T+K) mod 26</code></blockquote>
+						Onde <strong>C</strong> é o resultado da cifra, <strong>E</strong> é a função que recebe o texto claro
+						<strong>T</strong>
+						e a chave<strong>K</strong>(assumindo o valor ente 1 a 25), onde cada letra do texto vai ser somada com a chave e fazer um
+						modular com o 26.
+						Para decriptografia, a mesma regra deve ser seguida, somente aplicando a inversão da soma.
+						<blockquote><code>T=D(C,K)=(C-K) mod 26</code></blockquote>
+					</p>
 				</div>
-			</form>
-		</div>
-		<div class="jumbotron">
-			<div class="row">
-			 <div class=col-md-12>
-			 	<p class="alert alert-info" id="tcl">
-			 		<strong>Texto claro:</strong><span id="cl"></span>
-			 	</p>
-			 </div>
-			</div>
-			<div class="row">
-			 <div class="col-md-12">
-			 	<p class="alert alert-success" id="tcf">
-			 		<strong>Texto cifrado:</strong><span id="ci"></span>
-			 	</p>
-			 </div>
-			</div>
-			<div class="row">
-			 <div class="col-md-12">
-			 	<p class="alert alert-info" id="tcd">
-			 		<strong>Texto Decifrado:</strong><span id="de"></span>
-			 	</p>
-			 </div>
 			</div>
 		</div>
 	</div>

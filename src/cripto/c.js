@@ -5,9 +5,7 @@ var funcao = (function(){
 		Algoritmo de criptografia, usando um texto claro, a partir de um chave k.
 	*/
 	// Fução que gera a chave de 1 a 25 do alfabeto.
-
-	return {
-		 c: t=>{
+	   var c = t=>{
 		 let texto_claro = t.value;
 		 let key = $("#key").value;
 		 let texto_cifrado = "";
@@ -18,8 +16,8 @@ var funcao = (function(){
 		 $("#ci").innerHTML = texto_cifrado;
 		 $("#tcl").style.visibility = 'visible';
 		 $("#tcf").style.visibility = 'visible';
-	   },
-	   d: ()=>{
+	   };
+	   var d = ()=>{
 	   	let texto_cifrado = $("#ci").textContent;
 		 let key = $("#key").value;
 		 let texto_claro = "";
@@ -28,8 +26,8 @@ var funcao = (function(){
 		 }
 		 $("#de").innerHTML = texto_claro;
 		 $("#tcd").style.visibility = 'visible';
-	   },
-	   limpar: function(){
+	   };
+	   var limpar = function(){
 	 		$("#de").innerHTML = "";
 		 	$("#tcd").style.visibility = 'hidden';
 	 		$("#key").value = "";
@@ -38,7 +36,10 @@ var funcao = (function(){
 	 		$("#tcl").style.visibility = 'hidden';
 	 		$("#tcf").style.visibility = 'hidden';
 	 		$("#ci").innerHTML = "";
-	 	}   
-	};
-
+	 	};
+		 return {
+			 c: c,
+			 d: d,
+			 limpar: limpar
+		 }
 })(document);
