@@ -12,14 +12,14 @@ var funcao = (function(){
 		 for(let i = 0; i < texto_claro.length; i++){
 			texto_cifrado += String.fromCharCode((texto_claro.charCodeAt(i)+key % 26));
 		 }
-		 $("#cl").innerHTML = texto_claro;
-		 $("#ci").innerHTML = texto_cifrado;
-		 $("#tcl").style.visibility = 'visible';
-		 $("#tcf").style.visibility = 'visible';
+		 	$("#cl").innerHTML = texto_claro;
+            $("#ci").innerHTML = texto_cifrado;
+            $("#tcl").style.visibility = 'visible';
+            $("#tcf").style.visibility = 'visible';
 	   };
 	   var d = ()=>{
-	   	let texto_cifrado = $("#ci").textContent;
-		 let key = $("#key").value;
+	   	 let texto_cifrado = $("#ci").textContent;
+		 let key = $("#chave").value;
 		 let texto_claro = "";
 		 for(let i = 0; i < texto_cifrado.length; i++){
 			texto_claro+= String.fromCharCode((texto_cifrado.charCodeAt(i)-key % 26));
